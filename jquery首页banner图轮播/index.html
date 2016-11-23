@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/jquery-1.11.1.js"></script>
+<style>
+*{ margin:0; padding:0;}
+#banner{ width:100%; height:300px; background:rgb(216,203,255); margin-top:50px; position:relative;}
+.pic{ width:760px; height:300px; margin:0 auto; position:relative;}
+.pic img{ width:760px; height:300px; position:absolute; display:none; position:absolute;}
+.tab{ width:140px; height:22px; position:absolute; left:50%; bottom:15px; margin-left:-70px; border-radius:11px; background:rgba(1,1,1,0.1);}
+.tab ul li{ width:8px; height:8px; border:1px solid #fff; border-radius:100%; list-style:none; float:left; margin:6px 5px;}
+.tab ul li.cur{ background:#fff;}
+.nav{width:1200px;position:relative;left:50%;margin-left:-600px;  top:50%; margin-top:30px; display:none;}
+.nav a{display:block;width:41px;height:119px;opacity:0.6;z-index:9;}
+.nav a.prev{position:absolute;left:0;top:-350px;margin-top:-58px;background:url(img/ban_pre.png) no-repeat;}
+.nav a.next{position:absolute;right:0;top:-350px;margin-top:-58px;background:url(img/ban_next.png) no-repeat;}
+</style>
+</head>
+
+<body>
+<div id="banner">
+	<!--图片-->
+	<div class="pic">
+        	<img data_color="#D8D0F5" src="img/1.jpg" style="display:block;"/>
+            <img data_color="#4E4D9B"  src="img/2.jpg"/>
+            <img data_color="#62A5D0"  src="img/3.jpg"/>
+           	<img data_color="#FA8484"  src="img/4.jpg"/>
+            <img data_color="#2851E9"  src="img/5.jpg"/>
+            <img data_color="#441B57"  src="img/6.jpg"/>
+            <img data_color="#7398E6" src="img/7.jpg"/>
+    </div>
+    <!--切换卡-->
+    <div class="tab">
+    	<ul>
+        	<li class="cur"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <!--左右按钮-->
+    <div class="nav">
+    	<a class="prev" href="javascript:;"></a>
+		<a class="next" href="javascript:;"></a>
+    </div>
+</div>
+<script>
+var index=0;
+var timer=null;
+$("#banner div.tab ul li").hover(function(e) {
+	index=$(this).index();
+	tab();
+});
+//鼠标移动到banner上停止轮播和鼠标离开继续轮播及左右按钮显示与隐藏
+$("#banner").hover(function(e) {
+	clearInterval(timer); 
+	$(".nav").show();
+},function(){
+	auto();
+	$(".nav").hide();
+});
+//自动轮播
+function auto(){
+	timer=setInterval(function(){
+		index++;
+		index%=7;//改变index
+		tab();
+	},2000);
+}
+auto();
+//改变切换卡样式及改变banner图
+function tab(){
+	$("#banner div.tab ul li").eq(index).addClass("cur").siblings().removeClass("cur");
+	$("div.pic img").eq(index).fadeIn().siblings().hide();
+	$("#banner").css("background",$("div.pic img").eq(index).attr("data_color"));
+}
+//左右按钮点击
+$(".prev").click(function(e) {
+	index=$("#banner div.tab ul li.cur").index();
+	index==0?index=6:index-=1;
+	//console.log(index);
+	tab();
+});
+$(".next").click(function(e) {
+    index=$("#banner div.tab ul li.cur").index();
+	index==6?index=0:index+=1;
+	//console.log(index);
+	tab();
+});
+</script>
+</body>
+</html>

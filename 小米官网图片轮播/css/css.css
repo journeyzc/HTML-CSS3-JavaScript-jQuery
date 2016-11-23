@@ -1,0 +1,12 @@
+*{margin: 0; padding: 0;}
+#banner{width: 1226px; height: 460px; margin: 100px auto; position: relative;}
+#banner .pic{width: 1226px; height: 460px; position: relative;}
+#banner .pic img{position: absolute; display: none;}
+#banner .tab{width: 110px; height: 11px; position: absolute; bottom: 20px; right: 25px;}
+#banner .tab ul li{list-style: none; float: left; display: block; width: 8px; height: 8px; background: #333; border-radius: 100%; margin:0 6px; opacity: 0.7; cursor: pointer; transition: .3s;}
+#banner .tab ul li:hover{background: #fff; box-shadow: 0 0 8px #333;}
+#banner .tab ul li.on{background: #fff; box-shadow: 0 0 8px #333;}
+#banner .btn a{width: 40px; height:70px; display: block; font-size: 80px; color:#999; text-decoration: none; line-height: 70px; text-align: center; position: absolute; top: 50%; margin-top: -35px;}
+#left{left: 10px;}
+#right{right: 10px;}
+#banner .btn a:hover{background: rgba(0,0,0,0.3); color: #fff;}

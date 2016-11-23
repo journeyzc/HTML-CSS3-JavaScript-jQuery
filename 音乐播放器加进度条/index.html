@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>加进度条的音乐播放器</title>
+	<style type="text/css">
+	*{margin: 0; padding: 0;}
+	#Music{
+		width: 740px;
+		height: 248px;
+		background: url(images/bg2.png);
+		margin:100px auto 0;
+	}
+	#Music .MusicImg{width: 248px; height: 248px; float: left;}
+	#Music .MusicCon{width: 480px; height: 248px; float: right;}
+	#Music .MusicImg img.xxpic{border-radius: 50%;width: 235px; height: 235px; border:6px solid #ccc;}
+	#Music .MusicImg img.zq{-webkit-animation: zq 8s infinite linear;}
+	@-webkit-keyframes zq{from{-webkit-transform:rotate(0deg);}
+						   to{-webkit-transform:rotate(360deg);}
+						}
+	#Music .MusicCon h3{color: #fff; font-size: 22px; font-family: "微软雅黑"; font-weight: 100; line-height: 70px;}
+	#Music .MusicCon dl{width: 470px; height: 68px;}
+	#Music .MusicCon dl dt{width: 68px; height: 68px; float: left;}
+	#Music .MusicCon dl dd{width: 380px; height: 68px; float: right; position: relative;}
+	#Music .MusicCon dl dd p.Music_jd{width: 100%; height: 5px; background: #898989; position: absolute; top: 30px; left: 0;}
+	#Music .MusicCon dl dd p.Music_jd2{width: 0px; height: 5px; background: #fff; position: absolute; top: 30px; left: 0px;}
+	#Music .MusicCon div.btn{position: relative;}
+	#Music .MusicCon div.prev{width: 51px; height: 51px; position: absolute; top: 20px; left: 250px;}
+	#Music .MusicCon div.next{width: 51px; height: 51px; position: absolute; top: 20px; left: 350px;}
+	#Music_audio{display: none;}
+	</style>
+</head>
+<body>
+	<div id="Music">
+	<!--做图片开始-->
+		<div class="MusicImg">
+			<img src="images/music2.jpg" width="248px" height="248px" class="xxpic" />
+		</div>
+	<!--左图片结束-->
+	<!--右边播放内容开始-->
+		<div class="MusicCon">
+			<h3 class="text">咱们结婚吧-齐晨</h3>
+			<dl>
+				<dt><img class="playBut" src="images/play.png" height="68" width="68" alt=""></dt>
+				<dd>
+					<p class="Music_jd"></p>
+					<p class="Music_jd2"></p>
+				</dd>
+			</dl>
+			<div class="btn">
+				<div class="prev"><img src="images/prev.png" height="51" width="51" alt=""></div>
+				<div class="next"><img src="images/next.png" height="51" width="51" alt=""></div>
+			</div>
+			
+		</div>
+	<!--右边播放内容结束-->
+	</div>
+	<!--html5音乐播放器-->
+	<audio id="Music_audio" src="mp3/咱们结婚吧.mp3" controls></audio>
+	<!--html5音乐播放器结束-->
+	<!--引用外部jquery 类库文件-->
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+	//当鼠标点击播放按钮的时候
+	var mark=0;//暂停
+	var _index=0;
+	var musicSrc=['mp3/咱们结婚吧.mp3','mp3/李白.mp3','mp3/梦的翅膀受了伤.mp3','mp3/泡沫.mp3'];
+	var imgSrc=['images/music2.jpg','images/music1.jpg','images/music4.jpg','images/music3.jpg'];
+	var text=['咱们结婚吧-齐晨','李白-李荣浩','梦的翅膀受了伤-蒋雪儿','泡沫-邓紫棋'];
+	$('img.playBut').click(function(){
+		//alert(123);
+		if(mark==0){
+			$(this).attr('src','images/pause.png');//替换播放按钮图片
+			$('#Music_audio').get(0).play();//播放音乐
+			$('img.xxpic').addClass('zq');
+			//定时器,定时调用进度条的状态
+			setInterval(play_jd,1000);
+			mark=1;//播放
+		}else{
+			$(this).attr('src','images/play.png');
+			$('#Music_audio').get(0).pause();
+			$('img.xxpic').removeClass('zq');
+			mark=0;
+		}
+	});
+	$('div.prev').click(function(){
+		_index++;
+		if(_index>3){
+			_index=0;
+		}
+		if(mark==1){
+			autoplay();
+		}else{
+			play();
+		}
+	})
+	$('div.next').click(function(){
+		_index--;
+		if(_index<0){
+			_index=3;
+		}
+		if(mark==1){
+			autoplay();
+		}else{
+			play();
+		}
+	})
+	//获取音乐播放器进度条
+	function play_jd(){
+		var currTime=$('#Music_audio').get(0).currentTime;//当前播放时间
+		var allTime=$('#Music_audio').get(0).duration;//获取音乐的总时间
+		var bl=currTime/allTime;
+		var _width=bl*380;
+		$('p.Music_jd2').css('width',_width);
+		document.title="当"+currTime+"总"+allTime;
+	}
+	function autoplay(){
+		$('#Music_audio').attr('src',musicSrc[_index]);
+		$('.MusicImg img').attr('src',imgSrc[_index]);
+		$('h3.text').html(text[_index]);
+		$('img.playBut').attr('src','images/pause.png');
+		$('img.xxpic').addClass('zq');
+		$('#Music_audio').get(0).play();
+		play_jd();
+	}
+	function play(){
+		$('#Music_audio').attr('src',musicSrc[_index]);
+		$('.MusicImg img').attr('src',imgSrc[_index]);
+		$('h3.text').html(text[_index]);
+	}
+	</script>
+</body>
+</html>

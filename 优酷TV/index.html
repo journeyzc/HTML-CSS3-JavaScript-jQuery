@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>优酷TV</title>
+	<style type="text/css">
+	*{
+		margin:0;
+		padding:0;
+	}
+	#banner{
+		width: 970px;
+		height:270px;
+		margin:100px auto 0;
+		position: relative;
+		overflow: hidden;
+	}
+	#banner ul li{
+		list-style: none;
+		width: 0;
+		height: 0;
+		position:absolute;
+		top:135px;
+		left: 485px;
+		background: #000;
+	}
+	#banner ul li img{
+		width: 100%;
+		height:100%;
+		opacity: 0.5;
+	}
+	#banner ul li.l1{
+		width: 640px;
+		height: 270px; 
+		left: 165px;
+		top: 0px;
+		z-index: 10;
+	}
+	#banner ul li.l2{
+		width: 500px;
+		height: 225px;
+		left: 470px;
+		top: 23px;
+		z-index: 9;
+	}
+	#banner ul li.l3{
+		width: 300px;
+		height: 100px;
+		left: 820px;
+		top: 85px;
+		z-index: 8;
+	}
+	#banner ul li.l9{
+		width: 300px;
+		height: 100px;
+		left: -150px;
+		top: 85px;
+		z-index: 8;
+	}
+	#banner ul li.l0{
+		width: 500px;
+		height: 225px;
+		left: 0px;
+		top: 23px;
+		z-index: 9;
+	}
+	#banner ul li.l1 img{opacity: 1;}
+	.btn img{
+		width: 30px;
+		height: 60px;
+		position:absolute;
+		top: 50%;
+		margin-top: -30px;
+		cursor: pointer;
+		z-index: 10;
+	}
+	.btn img.left{left: 20px;}
+	.btn img.right{right: 20px;}
+	</style>
+</head>
+<body>
+	<div id="banner">
+		<ul>
+			<li class="l1"><img src="img/1.jpg" height="410" width="970" alt=""></li>
+			<li class="l2"><img src="img/2.jpg" height="410" width="970" alt=""></li>
+			<li class="l3"><img src="img/3.jpg" height="410" width="970" alt=""></li>
+			<li><img src="img/4.jpg" height="270" width="640" alt=""></li>
+			<li><img src="img/5.jpg" height="270" width="640" alt=""></li>
+			<li><img src="img/6.jpg" height="410" width="970" alt=""></li>
+			<li><img src="img/7.jpg" height="270" width="640" alt=""></li>
+			<li><img src="img/8.jpg" height="270" width="640" alt=""></li>
+			<li class="l9"><img src="img/9.jpg" height="270" width="640" alt=""></li>
+			<li class="l0"><img src="img/10.jpg" height="410" width="970" alt=""></li>
+		</ul>
+		<div class="btn">
+			<img class="left" src="img/btn_left.png" >
+			<img class="right" src="img/btn_right.png" >
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+	var arrW=[] , arrH=[] , arrL=[] , arrT=[] , arrZ=[] , arrO=[];
+	var time=new Date();
+
+	$('div.btn img').click(function(){
+		//alert(123);
+		var index=$(this).index();
+		if(new Date()-time>800){
+			time=new Date();
+
+			$('#banner li').each(function(i){
+				arrW[i]=$(this).css('width');
+				arrH[i]=$(this).css('height');
+				arrL[i]=$(this).css('left');
+				arrT[i]=$(this).css('top');
+				arrZ[i]=$(this).css('zIndex');
+				arrO[i]=$(this).find('img').css('opacity');
+			});
+			//alert(arrW);
+			// for(var i=0; i<$('#banner li').length;i++){
+			// 	arrW[i]=$('#banner li').eq(i).css('width');
+			// }
+			// alert(arrW);
+			$('#banner li').each(function(i){
+				if(index){
+					var a=i-1;
+					if(a<0)a=$('#banner li').length-1;
+				}else{
+					var a=i+1;
+					if(a>$('#banner li').length-1)a=0;
+				}
+				
+				$(this).css('zIndex',arrZ[a]).animate({
+					'width': arrW[a],
+					'height': arrH[a],
+					'left': arrL[a],
+					'top': arrT[a],
+				},800);
+				$(this).find('img').animate({'opacity':arrO[a]},800);
+			});
+		}
+	});
+	// $('.btn img.left').click(function(){
+	// 	if(new Date()-time>800){
+	// 		time=new Date();
+	// 		$('#banner li').each(function(i){
+	// 			arrW[i]=$(this).css('width');
+	// 			arrH[i]=$(this).css('height');
+	// 			arrL[i]=$(this).css('left');
+	// 			arrT[i]=$(this).css('top');
+	// 			arrZ[i]=$(this).css('zIndex');
+	// 			arrO[i]=$(this).find('img').css('opacity');
+	// 		});
+	// 		$('#banner li').each(function(i){
+	// 			var a=i+1;
+	// 			if(a>$('#banner li').length-1)a=0;
+	// 			$(this).css('zIndex',arrZ[a]).animate({
+	// 				'width': arrW[a],
+	// 				'height': arrH[a],
+	// 				'left': arrL[a],
+	// 				'top': arrT[a],
+	// 			},800);
+	// 			$(this).find('img').animate({'opacity':arrO[a]},800);
+	// 		});
+	// 	}
+	// });
+	</script>
+</body>
+</html>

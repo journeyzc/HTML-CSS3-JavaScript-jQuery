@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.he_ZoomInImg{
+	background:#fe7253;width:360px;height:240px;
+	padding:0;margin:0;border:1px solid #000;
+	position:relative;box-sizing:border-box;cursor:pointer;
+	transition:all .4s ease-in-out;overflow:hidden;
+	
+	-webkit-transition:all .4s ease-in-out;-moz-transition:all .4s ease-in-out;
+	-o-transition:all .4s ease-in-out;-ms-transition:all .4s ease-in-out;
+	
+}
+.he_ZoomInImg .he_ZoomInImg_img{
+	position:relative;display:block;
+	width:100%;padding:0;margin:0;
+	opacity:1;transition:all .4s ease-in-out;overflow:hidden;
+	
+	-webkit-transition:all .4s ease-in-out;-moz-transition:all .4s ease-in-out;
+	-o-transition:all .4s ease-in-out;-ms-transition:all .4s ease-in-out;
+
+}
+.he_ZoomInImg:hover .he_ZoomInImg_img{
+	opacity:.7;transform:scale(1.3);
+	
+	-webkit-transform:scale(1.3);-moz-transform:scale(1.3);
+	-o-transform:scale(1.3);-ms-transform:scale(1.3);	
+}
+.he_ZoomInImg .he_ZoomInImg_caption{
+	transition:all .4s ease-in-out;overflow:hidden;
+	
+	-moz-backface-visibility:hidden;-webkit-backface-visibility:hidden;backface-visibility:hidden;
+	-webkit-transition:all .4s ease-in-out;-moz-transition:all .4s ease-in-out;
+	-o-transition:all .4s ease-in-out;-ms-transition:all .4s ease-in-out;
+	
+}
+
+</style>
+</head>
+
+<body>
+
+ <div class="box">
+     <div class="he_ZoomInImg">
+        <img class="he_ZoomInImg_img" src="images/pro_2.jpg" alt="Image 01">
+       <!-- <div class="he_ZoomInImg_caption"> </div>    -->
+     </div>
+</div>
+</body>
+</html>

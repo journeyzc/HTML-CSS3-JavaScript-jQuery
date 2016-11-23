@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html onselectstart="return false">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<style type="text/css">
+	*{margin:0; padding:0;}
+	body{background:#000;}
+	#wrap{width: 120px; height: 180px; margin: 200px auto; position: relative; transform-style:preserve-3d; -webkit-transform:perspective(800px) rotateX(-10deg) rotateY(0deg);}
+	#wrap img{width:100%; height:100%; position: absolute; border-radius: 5px; box-shadow: 0 0 10px #fff; -webkit-box-reflect: below 5px -webkit-linear-gradient(top,rgba(0,0,0,0) 40% , rgba(0,0,0,0.5) 100%);}
+	</style>
+</head> 
+<body>
+	<div id="wrap">
+		<img src="img/1.jpg">
+		<img src="img/2.jpg">
+		<img src="img/3.jpg">
+		<img src="img/4.jpg">
+		<img src="img/5.jpg">
+		<img src="img/6.jpg">
+		<img src="img/7.jpg">
+		<img src="img/8.jpg">
+		<img src="img/9.jpg">
+		<img src="img/10.jpg">
+		<img src="img/11.jpg">
+	</div>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		var Deg=360 / ($('#wrap img').length);
+		$('#wrap img').each(function(i){
+			$(this).css({
+				'transform' : 'rotateY('+ i * Deg +'deg) translateZ(350px)',
+				'transition' : '0.5s '+ ($('#wrap img').length-i)*0.1 +'s' 
+			}).attr('ondragstart','return false')
+		});
+		var x , y ,x_ , y_ , timer;
+		var roY = 0 , roX = -10;
+		$(document).mousedown(function(ev){
+			clearInterval(timer);
+			x_=ev.clientX;
+			y_=ev.clientY;
+			$(this).on( 'mousemove',function(ev){
+				x = ev.clientX;
+				y = ev.clientY;
+				xN = x - x_;
+				yN = y - y_;
+				roY += xN*0.2;
+				roX -= yN*0.1;
+				$('#wrap').css('transform' , 'perspective(800px) rotateX('+ roX +'deg) rotateY('+ roY +'deg)');
+				x_= ev.clientX;
+				y_= ev.clientY;
+			});
+		}).mouseup(function(){
+			
+			$(this).off('mousemove');
+			timer=setInterval(function(){
+				xN *= 0.95;
+				yN *= 0.95;
+				if(Math.abs(xN)<0.5 && Math.abs(yN)<0.5){
+					clearInterval(timer);
+				}
+				roY += xN*0.2;
+				roX -= yN*0.1;
+				$('#wrap').css('transform' , 'perspective(800px) rotateX('+ roX +'deg) rotateY('+ roY +'deg)');
+			}, 30);
+		});
+	});
+	</script>
+</body>
+</html>

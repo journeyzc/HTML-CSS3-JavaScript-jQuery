@@ -1,0 +1,9 @@
+*{margin: 0; padding: 0;}
+body{height: 2000px;}
+#Menu{width: 32px; height: 360px; position: fixed; top: 180px; left: 30px;}
+#Menu ul li{width:32px; height:32px; border-bottom:1px dotted #ddd; list-style: none; text-align: center; line-height: 32px; font-size: 12px; color:#666; position: relative; cursor: pointer;}
+#Menu ul li span{width: 32px; height: 32px; background:#c00; display:block; position:absolute;left: 0; top: 0; color: #fff; display: none;}
+#Menu ul li.hover span{display: block;}
+#Menu ul li span.active{background: #fff; color: #c00; display: block;}
+#Menu ul li .hover span.active{background: #c00; color: #c00; display: block;}
+#con{width: 1200px; height: 9999px; margin: 0 auto;}

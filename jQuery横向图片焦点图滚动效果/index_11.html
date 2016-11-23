@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/jquery-1.11.1.js"></script>
+<style>
+*{ margin:0; padding:0; font-family:"微软雅黑";}
+#contain{ width:967px; height:330px; overflow:hidden; position:relative; margin:0 auto;}
+#ceng{ width:967px; height:35px; background-color:rgba(0,0,0,0.5); position:absolute; left:0; bottom:0; }
+#contain img{ position:relative; top:0; left:0; float:left;}
+.title{ padding-left:20px;float:left; color:#fff; line-height:35px;}
+.tab{ float:right; list-style:none; margin-top:5px; margin-right:20px; }
+.tab li{ margin:0 5px; cursor:pointer; color:#fff; float:left; width:24px; height:24px; line-height:24px; text-align:center; background: url(images/silde-nav.png); }
+li.cur{ background-position:0 -24px;}
+</style>
+</head>
+
+<body>
+<div id="contain">
+  <div style=" width:3880px;">
+	<img src="images/a1.jpg" />
+    <img src="images/a2.jpg"/>
+    <img src="images/a3.jpg"/>
+    <img src="images/a4.jpg"/>
+   </div>
+    <div id="ceng">
+    	<div class="title"></div>
+<!--        <div class="title">标题：哈哈哈环境四爱好哈2</div>
+        <div class="title">标题：哈哈肌肉呃呃呃呃呃呃哈哈3</div>
+        <div class="title">标题：哈让他人突然感叹号哈哈4哈</div>-->
+        <ul class="tab">
+        	<li class="cur">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+</div>
+<script>
+var timer=null;
+var index=0;
+var titles=[
+	"标题1：哈哈哈哈哈哈哈",
+	"标题2：呵呵呵呵呵呵",
+	"标题3：嘿嘿嘿嘿嘿",
+	"标题4：额嗬嗬嗬嗬"
+];
+$("#ceng ul li").hover(function(e) {
+   	index=$(this).index();
+	tab();
+});
+$("#contain").hover(function(e) {
+    clearInterval(timer);
+	timer=null;
+},function(){
+	auto();
+});
+//自动播放
+function auto(){
+	timer=setInterval(function(){
+		tab();
+		index++;
+		index%=4;
+	},2000);
+}
+auto();
+//修改数字背景、图片、标题
+function tab(){
+	$("#contain img").stop().animate({left:-index*967});
+	$("#ceng ul li").eq(index).addClass("cur").siblings().removeClass("cur");
+	ticker($("#ceng .title"),titles[index],1);//文字依次显示
+}
+//文字依次出现
+function ticker(el,text,pos){
+	console.log(text);
+	if(pos<text.length){
+		t=setInterval(function(){el.html(text.substring(0,pos++))},30);
+	}else{
+		clearInterval(t);
+		t=null;
+	}
+	  	//alert(1);
+/*  str=text.substring(0,pos);
+  el.html(str);
+  if(pos==text.length){
+  	 el.html(text);
+  }else{
+  	 window.setInterval(ticker(el,text,(pos+1),30));
+  }*/
+}
+
+</script>
+</body>
+</html>

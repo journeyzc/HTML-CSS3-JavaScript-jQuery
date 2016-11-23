@@ -1,0 +1,12 @@
+*{margin: 0;}
+#flash{width:100%; height: 457px; background:url(../images/bg.jpg); padding-top:35px;}
+#flash .Con{width: 980px; height: 420px; margin: 0px auto; position: relative; overflow: hidden;}
+#flash .Con .scroll{width: 9999px; height: 420px; position: absolute; left: 0px;}
+#flash .Con .scroll img{float: left;}
+#flash .Con .But{width: 100%; height: 30px; position: absolute; bottom: 0; text-align: center;}
+#flash .Con .But span{width: 16px; height: 16px; display:inline-block; background: url(../images/but1.png) no-repeat center; margin: 0px 2px;}
+#flash .Con .But span.active{background-image: url(../images/but2.png);}
+#flash .Con div.left,#flash .Con div.right{position: absolute; top: 170px;}
+#flash .Con div.left{left: 10px; background: #333; opacity: 0.3;}
+#flash .Con div.right{right: 10px; background: #333; opacity: 0.3;}
+#flash .Con div.hover{background: none; opacity: 1;}

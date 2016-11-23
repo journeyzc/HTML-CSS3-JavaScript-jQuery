@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<style type="text/css">
+	*{margin:0;/*浏览器兼容问题 清除默认外边距*/padding:0;}
+	.banner{width:1180px;/*宽  像素*/height:500px;/*高*/
+		margin:50px auto 0;/*上 左右 下*/
+		overflow:hidden;/*超出的部分隐藏*/
+	}
+	.banner .left{width:80px;height:500px;background:rgba(0,0,0,0.4);
+		float:left;/*左浮动*/}
+	.banner .left img{display:block;margin:219px auto 0;}
+	.banner .middle{width:1020px;height:500px;float:left;
+		position:relative;/*相对定位 参照物*/}
+	.banner .right{width:80px;height:500px;float:left;
+		background:rgba(0,0,0,0.4);}
+	.banner .right img{display:block;/*以块级显示*/margin:219px auto 0;}
+	.banner .middle ul{width:1000%;height:500px;
+		position:absolute;/*绝对定位*/top:0;left:-1020px;
+		z-index:-1;
+		}
+	.banner .middle ul li{width:1020px;height:500px;
+		/*border:1px solid green;边框线粗细 线型  颜色*/
+		list-style-type:none;/*去掉小圆点*/float:left;}
+	.banner .middle ul li .l_con{float:left;border:5px solid #000;
+		border-bottom:10px solid #000;border-top:10px solid #000;}
+	.banner .middle ul li .r_con{float:left;border:5px solid #000;
+		border-bottom:10px solid #000;border-top:10px solid #000;}
+	</style>
+</head>
+<body>
+	<div class="banner">
+		<div class="left"><img src="images/btn_left.png"></div>
+		<div class="middle">
+			<ul>
+				<!--视觉效果-->
+				<li>
+					<div class="l_con"><img src="images/6-6.jpg"></div>
+					<div class="r_con"><img src="images/6.jpg"></div>
+				</li>
+				<!--视觉效果-->
+
+				<li>
+					<div class="l_con"><img src="images/1-1.jpg"></div>
+					<div class="r_con"><img src="images/1.jpg"></div>
+				</li>
+				<li>
+					<div class="l_con"><img src="images/2-2.jpg"></div>
+					<div class="r_con"><img src="images/2.jpg"></div>
+				</li>
+				<li>
+					<div class="l_con"><img src="images/3-3.jpg"></div>
+					<div class="r_con"><img src="images/3.jpg"></div>
+				</li>
+				<li>
+					<div class="l_con"><img src="images/4-4.jpg"></div>
+					<div class="r_con"><img src="images/4.jpg"></div>
+				</li>
+				<li>
+					<div class="l_con"><img src="images/5-5.jpg"></div>
+					<div class="r_con"><img src="images/5.jpg"></div>
+				</li>
+				<li>
+					<div class="l_con"><img src="images/6-6.jpg"></div>
+					<div class="r_con"><img src="images/6.jpg"></div>
+				</li>
+				
+				<!--视觉效果-->
+				<li>
+					<div class="l_con"><img src="images/1-1.jpg"></div>
+					<div class="r_con"><img src="images/1.jpg"></div>
+				</li>
+				<!--视觉效果-->
+			</ul>
+		</div>
+		<div class="right"><img src="images/btn_right.png"></div>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+	var index=1;
+	$('.banner .right img').click(function(){
+		index++;
+		if(index>6){
+			index=1;
+			$('ul').css({left:'0px'})
+		}
+		play();
+	});
+	$('.banner .left img').click(function(){
+		index--;
+		if(index<1){
+			index=6;
+			$('ul').css({left:7*-1020+'px'})
+		}
+		play();
+	});
+
+	// $('.banner .right img').mouseover(function(){
+	// 	clearInterval(clearTime);
+	// });
+	// $('.banner .right img').mouseout(function(){
+	// 	autoplay();
+	// });
+	// $('.banner .left img').mouseover(function(){
+	// 	clearInterval(clearTime);
+	// });
+	// $('.banner .left img').mouseout(function(){
+	// 	autoplay();
+	// });
+	$('.banner').hover(function(){
+		clearInterval(clearTime);
+	},function(){
+		autoplay();
+	});
+
+	autoplay();
+	function play(){
+		$('ul').animate({left:-1020*index+'px'},500)
+	}
+	function autoplay(){
+		clearTime=setInterval(function(){
+			index++;
+			if(index>6){
+				index=1;
+				$('ul').css({left:'0px'})
+			}
+			play(index);
+		}, 2000);
+	}
+	</script>
+</body>
+</html>

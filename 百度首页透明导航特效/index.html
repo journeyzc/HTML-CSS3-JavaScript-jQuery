@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/jquery-1.11.1.js"></script>
+<style>
+*{ padding:0; margin:0; font-family:"微软雅黑";}
+body{ background:url(images/bg.jpg) no-repeat; background-size:cover;}
+#logo{ width:270px; height:129px;margin:0 auto; padding-top:45px;}
+#con{ width:930px; height:320px; margin:60px auto;}
+#con .left{ float:left; width:80px; height:320px; background:#000000; opacity:0.5;}
+#con .left ul li{ list-style:none; color:#fff; font-size:14px; line-height:35px; text-align:center; cursor:pointer;}
+#con .left ul li.cur{ background:#fff url(images/li-bg.png) no-repeat; color:#4b4b4b; }
+#con .right{ float:right; width:810px; height:315px;  overflow:hidden; position:relative;}
+#con .right .scroll{ widows:810px; height:1000%; position:absolute;}
+#con .right .scroll img{ display:block;}
+</style>
+<script>
+$(document).ready(function(e) {
+	var _index=0;
+    $(" ul li").click(function(e) {
+        _index=$(this).index();
+		$(this).addClass("cur").siblings().removeClass("cur");
+		$(".right .scroll").stop().animate({top:-_index*315},500);
+    });
+});
+</script>
+</head>
+
+<body>
+<div id="logo"><img src="images/logo.png" width="270" height="129"/></div>
+<div id="con">
+	<div class="left">
+    	<ul>
+        	<li>哈哈1</li>
+            <li>哈哈1</li>
+            <li>哈哈1</li>
+            <li>哈哈1</li>
+            <li>哈哈1</li>
+            <li>哈哈1</li>
+            <li>哈哈1</li>
+            <li>哈哈1</li>
+        </ul>
+    </div>
+    <div class="right">
+    	<div class="scroll">
+        	<img src="images/1.png"/>
+            <img src="images/2.png"/>
+            <img src="images/3.png"/>
+            <img src="images/4.png"/>
+            <img src="images/5.png"/>
+            <img src="images/6.png"/>
+            <img src="images/7.png"/>
+            <img src="images/8.png"/>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+*{margin: 0; padding: 0;}
+body{color: #666; font-family: "微软雅黑"; background: #f9f9f9;}
+img{border:0px; display: block; border-radius: 2px;}
+.pic{width: 906px; height: 1000px; margin: 30px auto 0;}
+.pic ul li{list-style: none; float: left; margin-right: 12px; margin-bottom: 15px; border-radius: 2px; box-shadow: 0 1px 3px 0 rgba(0,0,0,0.3);}
+.pic ul li p{width:288px; line-height: 35px; text-align: center; font-weight: 100; font-size: 12px; font-family: "微软雅黑"; background: #fff;}
+.pic ul li a:hover img{opacity: 0.8; filter:alpha(opacity=80);}

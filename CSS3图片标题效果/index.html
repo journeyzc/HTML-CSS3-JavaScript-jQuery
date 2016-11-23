@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>4种很酷的css3图片标题效果</title>
+	<style type="text/css">
+	*{margin: 0; padding: 0;}
+	body{background: #eaeaea;}
+	h3,p{margin:0; padding:0;}
+	h3{font-size: 14px;}
+	.main{width: 900px; height: 300px;}
+	.box{width: 200px; height: 200px; border:5px solid #fff; box-shadow: 1px 1px 2px #ccc; float: left; margin: 5px; cursor: pointer; position: relative; overflow: hidden;}
+	.box img{position: absolute; left:0;}
+	.caption{position:absolute; background: rgba(0,0,0,0.8); color: #fff; font-family:"微软雅黑"; line-height: 140%; left: 0;z-index: 2;}
+	.caption p{font-size: 12px;}
+	.simple{text-align: center; width:200px; height: 30px; line-height: 30px; bottom: -30px; transition: all 300ms ease-out 0;}
+	.box:hover .simple{bottom:0px;}
+	.full{padding:15px; width: 170px; height: 170px; top: -200px; transition: all 300ms ease-out 0;}
+	/*.box:hover .full{-webkit-transform: translateY(-100%);transform:translateY(100%);}*/
+	.box:hover .full{top: 0px;}
+	.jms{padding:15px; width: 170px; height: 170px; opacity: 0; transition: all 300ms ease-out 0;}
+	.box:hover .jms{opacity: 1;}
+	.lld{padding:15px; width: 170px; height: 170px; left: 200px; transition: all 300ms ease-out 0;}
+	.box:hover .lld{-webkit-transform: translateX(-100%);transform:translateX(-100%);}
+	.imghide{transition: all 300ms ease-out 0;}
+	.box:hover .imghide{-webkit-transform: translateX(-100%);transform:translateX(-100%);}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="box">
+			<img src="images/1.jpg" width="200px" height="200px" alt="">
+			<div class="caption simple">
+				<h3>热火三巨头聚首</h3>
+			</div>
+		</div>
+		<div class="box">
+			<img src="images/2.jpg" width="200px" height="200px" alt="">
+			<div class="caption full">
+				<h3>总决赛G1前瞻</h3>
+				<p>连续第二年，热火和马刺在总决赛狭路相逢，但同时，这也仅仅是两支球队历史上的第二次遭遇。去年总决赛，热火和马刺第一次会师就火花四溅。双方打满七场才分出胜负，最终三巨头领军的热火凭借最后一场主场...</p>
+			</div>
+		</div>
+		<div class="box">
+			<img src="images/3.jpg" width="200px" height="200px" alt="">
+			<div class="caption jms">
+				<h3>新老霸主再度对决</h3>
+				<p>热火和马刺都在分区决赛中6场过关，双方连续第二年会师总决赛。相比之下马刺有着更稳定的配角发挥，多一个主场优势，以及更有利于主队的赛制。热火即便是靠三巨头的全面爆发来弥补都压力山大...</p>
+			</div>
+		</div>
+		<div class="box">
+			<img class="imghide" src="images/4.jpg" width="200px" height="200px" alt="">
+			<div class="caption lld">
+				<h3>雷霆活力拉拉队</h3>
+				<p>虽然雷霆遗憾止步西部决赛，但是相信年轻的雷霆一定还有机会。雷霆除了场上的比赛吸引了众多球迷的眼球，充满活力的拉拉队也让人非常喜欢。...</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

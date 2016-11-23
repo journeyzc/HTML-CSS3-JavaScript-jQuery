@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>360图集首页布局</title>
+	<style type="text/css">
+	*{margin: 0; padding: 0;}
+
+	#pic{width: 1000px; height: 351px;}
+	#pic .left{width: 528px; height: 351px; float: left; margin-right: 2px; position: relative;}
+	#pic .middle,#pic .right{width: 234px; height: 351px; float: left; margin-right: 1px;}
+
+	#pic .middle .top,#pic .right .top,#pic .right .bottom{width:234px; height:175px; margin-bottom:1px; position: relative;}
+	#pic .middle .top span,#pic .right .bottom span{width:154px; height:105px;background:#000; position:absolute; left:0px; top:0px;display:block;filter:Alpha(opacity=70);-moz-opacity: 0.7; opacity: 0.7; color:#fff; padding:70px 60px 0px 20px; left: 0; bottom: 10px;}
+	#pic .middle .top span h3,#pic .right .bottom span h3{font-size: 20px; font-family: "微软雅黑"; font-weight: 100; margin: 0;}
+	#pic .middle .top span p,#pic .right .bottom span p{font-size: 12px; font-family: "微软雅黑"; padding-top: 15px;}
+	#pic .middle .top span:hover,#pic .right .bottom span:hover{filter:Alpha(opacity=0);-moz-opacity: 0; opacity: 0; -webkit-transition:all 1s ease;}
+	#pic .middle .bottom{position:relative;} 
+	#pic .middle .bottom span,#pic .right .top span,#pic .left span{height: 30px; background: #000; display: block; color: #fff; font-size: 14px; font-family: "微软雅黑"; text-align: center; line-height: 30px; position: absolute; left: 0; bottom: 10px;filter:Alpha(opacity=70);-moz-opacity: 0.7; opacity: 0.7; padding:0px 20px;}
+	</style>
+</head>
+<body>
+
+	<div id="pic">
+	<!--左边开始-->
+		<div class="left">
+			<img src="images/1.jpg" alt="">
+			<span>足球宝贝</span>
+		</div>
+	<!--左边结束-->
+	<!--中间开始-->
+	<div class="middle">
+		<div class="top">
+			<img src="images/2.jpg" alt="">
+			<span>
+				<h3>图说历史</h3>
+				<p>聚焦文史热点，历数逸闻趣事。包容百家，让历史照亮现实。</p>
+			</span>
+		</div>
+		<div class="bottom">
+			<img src="images/3.jpg" alt="">
+			<span>自然风景</span>
+		</div>
+	</div>
+	<!--中间结束-->
+	<!--右边开始-->
+	<div class="right">
+		<div class="top">
+			<img src="images/4.jpg" />
+			<span>萌宠</span>
+		</div>
+		<div class="bottom">
+			<img src="images/5.jpg" />
+			<span>
+				<h3>图说历史</h3>
+				<p>聚焦文史热点，历数逸闻趣事。包容百家，让历史照亮现实。</p>
+			</span>
+		</div>
+	</div>
+	<!--右边结束-->
+	</div>
+</body>
+</html>

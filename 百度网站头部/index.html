@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<!--声明当前页面的编码集charset=gbk中文编码gb2312,charset=utf-8国际编码-->
+		<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+		<!--当前页面的三要素-->
+		<title>清爽大气的网站头部制作 - Arry老师</title>
+		<meta name="Keywords" content="HTML,css,网站头部制作">
+		<meta name="description" content="">
+		
+		<!--css ， js-->
+		<!--css: 层叠样式表 一件美丽外衣-->
+		<!--内嵌样式-->
+		<style type="text/css">
+			*{margin:0px;padding:0px;}
+			body{background:url("images/bg.jpg") repeat-x top center;
+				/*background-position:top center;*/}
+			img{border:none;}
+			/*以“.”开头的css样式称之为 类样式*/
+			.header{width:1020px;height:51px;margin:0 auto;
+				padding-top:30px;margin-bottom:20px;
+			}
+			.header .logo{float:left;}
+			.header .nav{width:600px;height:35px;float:left;
+				/*margin:上 右 下 左*/
+				margin:15px 0 0 30px;
+			}
+			.header .nav ul li{list-style:none;float:left;line-height:35px;}
+			/*padding:上 右 下 左*/
+			.header .nav ul li a{text-decoration:none;padding:0px 20px 0px 20px;
+				color:#FFFFFF;font-size:16px;font-weight:bold;font-family:"微软雅黑";display:block;border-radius:4px;
+			}
+			.header .nav ul li .sel{background:#4c93ab;}
+			.header .nav ul li a:hover{background:#4c93ab;}
+
+			.banner{width:1000px;height:280px;margin:0 auto;background:#fff;
+				border-radius:6px;padding-top:20px;padding-left:20px;
+			}
+		</style>
+
+	</head>
+<body>
+	
+	<!--div:盒子 容器-->
+	<!--以class="自定义名称" 称之为类样式-->
+	<div class="header">
+		<div class="logo">
+			<a href="#"><img src="images/logo.png" alt="百度旅游" width="155" height="51" /></a>
+		</div>
+		<div class="nav">
+			<ul>
+				<li><a href="#" class="sel">首页</a></li>
+				<li><a href="#">目的地</a></li>
+				<li><a href="#">攻略</a></li>
+				<li><a href="#">游记</a></li>
+				<li><a href="#">画册</a></li>
+				<li><a href="#">行程计划</a></li>
+				<li><a href="#">特惠</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="banner">
+		<img src="images/banner.jpg" alt="最好的年货" width="996" height="251" />
+	</div>
+
+</body>
+</html>

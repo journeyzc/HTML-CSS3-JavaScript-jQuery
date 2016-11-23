@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="css/css.css">
+</head>
+<body>
+	<div id="flash">
+		<div class="Con">
+		<!--滚动区块-->
+			<div class="scroll">
+				<img src="images/flash1.jpg" >
+				<img src="images/flash2.jpg" >
+				<img src="images/flash3.jpg" >
+				<img src="images/flash4.jpg" >
+				<img src="images/flash5.jpg" >
+				<img src="images/flash6.jpg" >
+				<img src="images/flash1.jpg" >
+			</div>
+			<div class="But">
+				<span class="active"></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		<!--滚动区块结束-->
+			<div class="left"><img src="images/btn_left.png"/></div>
+			<div class="right"><img src="images/btn_right.png"/></div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+	var _index=0;
+	var clearTime=null;
+	$('.But span').click(function(){
+		_index=$(this).index();//获取序列号
+		//console.log(_index);0 1 2 3 4 5
+		play(_index);
+	});
+	//设置定时器
+	
+	autoplay();
+	$('.left').mousemove(function(){
+		$(this).addClass('hover');
+		clearInterval(clearTime);//清除定时器
+	});
+	$('.left').mouseout(function(){
+		$(this).removeClass('hover');
+		autoplay();
+	});
+	$('.right').mousemove(function(){
+		$(this).addClass('hover');
+		clearInterval(clearTime);//清除定时器
+	});
+	$('.right').mouseout(function(){
+		$(this).removeClass('hover');
+		autoplay();
+	});
+
+
+	$('.left').click(function(){
+		_index--;
+		if(_index<0){
+			_index=5;
+		}
+		play(_index);
+	});
+	$('.right').click(function() {
+		_index++;
+		if(_index>5){
+			_index=0;
+		}
+		play(_index);
+	});
+
+	$('.But span').mousemove(function(){
+		clearInterval(clearTime);//清除定时器
+	});
+	$('.But span').mouseout(function(){
+		autoplay();
+	});
+	//轮播图函数
+	function autoplay(){
+			clearTime=setInterval(function(){
+			_index++;
+			if(_index>5){
+				_index=0;
+			}
+			//alert(_index);
+			play(_index);	
+		},2000);
+	}
+	function play(){
+		$('.But span').eq(_index).addClass('active').siblings('span').removeClass('active');
+		$('.scroll').animate({left:-980*_index},500);
+	}
+	</script>
+</body>
+</html>

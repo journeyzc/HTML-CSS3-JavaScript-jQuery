@@ -1,0 +1,15 @@
+*{margin:0px;/*外边距*/padding:0px;/*内边距*/}
+body{background:url("../images/logo.jpg");/*背景图片*/height:100%;/*高度*/width:100%;/*高度*/}   /*标签选择器*/
+#nav{width:210px;/*高度 px像素*//*height:500px;*/background:#252525;/*背景颜色*/}
+#nav .logo{height:52px;/*高度*/text-align:center;/*文本对齐方式*/
+	padding:8px 0;/*上下 左右*/}
+#nav ul li{/*height:45px;*//*border:1px solid red;*/font-family:"微软雅黑";/*文字类型*/color:#fff;/*文字颜色*/line-height:45px;/*行高  垂直居中*/
+	border-top:1px solid #424242;/*上边框*/border-bottom:1px solid #000;/*下边框*/
+	cursor:pointer;/*鼠标指针*/}
+#nav ul li span.title{font-size:14px;/*文字大小*/padding-left:20px;/*左内边距*/}
+#nav ul li span.title img{margin-right:10px;/*右外边距*/vertical-align:middle;/*图片垂直
+	方式*/}
+#nav ul li .hover{font-size:12px;/*文字大小*/display:none;/*隐藏*/}
+#nav ul li .hover p{padding-left:45px;/*左内边距*/background:#2f3437;border-top:1px solid #3f4041;/*边框 粗细 风格 颜色*/line-height:35px;}
+	/*#nav ul li .first{display:block;*//*显示*//*}*/
+#nav ul li.curr{background:#5580fb;}

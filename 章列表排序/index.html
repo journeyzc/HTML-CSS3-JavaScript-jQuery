@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/jquery-1.11.1.js"></script>
+<style>
+*{ margin:0; padding:0; font-family:"微软雅黑"; font-size:12px;}
+#list{ width:268px;; margin:0 auto; border:1px solid #999;}
+ul{ list-style:none; width:250px;  padding:8px; padding-top:0; }
+a{ text-decoration:none; color:#000;}
+li{ clear:both;}
+.kuai{ width:100%; line-height:35px; color:#fff; background:#F76A6C; font-size:18px; font-weight:700;}
+.kuai span{ cursor:pointer; display:inline-block; width:131px; text-align:center;}
+.s{ background:#DF2225;}
+.word{ line-height:30px;}
+i{ font-style:normal; display:inline-block; height:20px; width:20px; background:#9E9A9A; text-align:center; line-height:20px; margin-right:5px; color:#fff;}
+.hot{ cursor:pointer; display:none; height:60px;margin:10px 0px;}
+.hot i{ background:#E95C5E; float:left;}
+.hot img{ width:70px; height:60px; padding:1px; }
+.hot img:hover{ border:1px solid #F19C52; padding:0; transform:scale(1.1);}
+.hot a{float:left; display:inline-block; width:60px;}
+.info{ float:left; width:140px; margin-left:20px; line-height:18px; }
+strong:hover{ color:#F19C52;}
+</style>
+</head>
+
+<body>
+<div id="list">
+	  <div class="kuai">
+      	<span class="s">文章列表1</span>
+        <span>文章列表2</span>
+      </div>
+	<ul>
+    	<li>
+        	<div class="word" style="display:none;"><i>1</i><a href="#">花都十二UI围巾沃放到热热恩</a></div>
+            <div class="hot" style="display:block;">
+            	<i>1</i><a href="#"><img src="images/1.jpg"/></a>
+                <div class="info">
+                	<strong class="name">纯CSS实现图片高..</strong>
+                    <p>默认图片上带有一层蒙版的效果. . .</p>
+                </div>
+            </div>
+        </li>
+        <li>
+        	<div class="word"><i>2</i><a href="#">花都十二三代人特瑞特围巾沃恩</a></div>
+            <div class="hot">
+            	<i>2</i><a href="#"><img src="images/2.jpg"/></a>
+                <div class="info">
+                	<strong class="name">纯CSS实现图片高..</strong>
+                    <p>默认图片上带有一层蒙版的效果</p>
+                </div>
+            </div>
+        </li>
+        <li>
+        	<div class="word"><i>3</i><a href="#">花都十二共同热热额尔围巾沃恩</a></div>
+            <div class="hot">
+            	<i>3</i><a href="#"><img src="images/1.jpg"/></a>
+                <div class="info">
+                	<strong class="name">纯CSS实现图片高..</strong>
+                    <p>默认图片上带有一层蒙版的效果</p>
+                </div>
+            </div>
+        </li>
+        <li>
+        	<div class="word"><i>4</i><a href="#">花都十二也让他又何必围巾沃恩</a></div>
+            <div class="hot">
+            	<i>4</i><a href="#"><img src="images/2.jpg"/></a>
+                <div class="info">
+                	<strong class="name">纯CSS实现图片高..</strong>
+                    <p>默认图片上带有一层蒙版的效果</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+    
+    <ul style="display:none;">
+    	<li>
+        	<div class="word" style="display:none;"><i>1</i><a href="#">豆腐机配件惹人</a></div>
+            <div class="hot" style="display:block;">
+            	<i>1</i><a href="#"><img src="images/1.jpg"/></a>
+                <div class="info">
+                	<strong class="name">纯CSS实现图片高..</strong>
+                    <p>默认图片上带有一层蒙版的效果. . .</p>
+                </div>
+            </div>
+        </li>
+        <li>
+        	<div class="word"><i>2</i><a href="#">豆腐机配件惹人倒计时了我也</a></div>
+            <div class="hot">
+            	<i>2</i><a href="#"><img src="images/2.jpg"/></a>
+                <div class="info">
+                	<strong class="name">纯CSS实现图片高..</strong>
+                    <p>默认图片上带有一层蒙版的效果</p>
+                </div>
+            </div>
+        </li>
+        <li>
+        	<div class="word"><i>3</i><a href="#">豆腐机配件惹人</a></div>
+            <div class="hot">
+            	<i>3</i><a href="#"><img src="images/1.jpg"/></a>
+                <div class="info">
+                	<strong class="name">纯CSS实现图片高..</strong>
+                    <p>默认图片上带有一层蒙版的效果</p>
+                </div>
+            </div>
+        </li>
+        <li>
+        	<div class="word"><i>4</i><a href="#">豆腐机配件惹人</a></div>
+            <div class="hot">
+            	<i>4</i><a href="#"><img src="images/2.jpg"/></a>
+                <div class="info">
+                	<strong class="name">纯CSS实现图片高..</strong>
+                    <p>默认图片上带有一层蒙版的效果</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<script>
+$("#list .kuai span").hover(function(e) {
+	$(this).addClass("s").siblings().removeClass("s");
+    var index=$(this).index();
+	$("#list ul").eq(index).show().siblings("ul").hide();
+});
+$("#list ul li").hover(function(e) {
+    $(".word",this).stop().hide();
+	$(this).siblings().find(".word").show();
+	$(".hot",this).stop().show();
+	$(this).siblings().find(".hot").hide();
+});
+</script>
+</body>
+</html>

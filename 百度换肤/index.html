@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>百度换肤</title>
+	<style type="text/css">
+		*{margin:0; padding:0;}
+		body{background: url(images/1.jpg);}
+		.but{background: url(images/upseek.png); width: 50px; height: 50px; display: block; position:fixed; top: 0; right: 0;}
+		.but:hover{background-position: bottom;}
+		.scrollcon{width: 100%; height: 120px; background: rgba(0,0,0,0.5); box-shadow: 0px 4px 10px #fff; display: none;}
+		.scroll{width: 840px; height: 100px; margin:0px auto; padding:10px 0px; overflow: hidden; position: relative;}
+		.scroll ul{width: 1000%; position:absolute; -webkit-animation: marquee 10s linear infinite alternate; animation: marquee 10s linear infinite alternate;}
+		.scroll ul:hover{-webkit-animation-play-state: paused;animation-play-state: paused;}
+		.scroll ul li{list-style: none; float: left; margin:10px;}
+		.scroll ul li img{width: 138px; height: 75px; border:5px solid #fff;}
+		@-webkit-keyframes marquee{
+			/*from{left:0px;}
+			to{left:-1680px;}*/
+			0%{left:0px;}
+			20%{left:0px;}
+			30%{left:-840px;}
+			70%{left:-840px;}
+			80%{left:-1680px;}
+			100%{left:-1680px;}
+		}
+		@keyframes marquee{
+			/*from{left:0px;}
+			to{left:-1680px;}*/
+			0%{left:0px;}
+			20%{left:0px;}
+			30%{left:-840px;}
+			70%{left:-840px;}
+			80%{left:-1680px;}
+			100%{left:-1680px;}
+		}
+	</style>
+</head>
+<body>
+	<a href="#" class="but"></a>
+	<div class="scrollcon">
+		<div class="scroll">
+			<ul>
+				<li><img src="images/1-1.jpg"></li>
+				<li><img src="images/2-2.jpg"></li>
+				<li><img src="images/3-3.jpg"></li>
+				<li><img src="images/4-4.jpg"></li>
+				<li><img src="images/5-5.jpg"></li>
+				<li><img src="images/6-6.jpg"></li>
+				<li><img src="images/7-7.jpg"></li>
+				<li><img src="images/8-8.jpg"></li>
+				<li><img src="images/9-9.jpg"></li>
+				<li><img src="images/10-10.jpg"></li>
+				<li><img src="images/11-11.jpg"></li>
+				<li><img src="images/12-12.jpg"></li>
+				<li><img src="images/13-13.jpg"></li>
+				<li><img src="images/14-14.jpg"></li>
+				<li><img src="images/15-15.jpg"></li>
+				<li><img src="images/16-16.jpg"></li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+	$('.but').click(function(){
+		//alert(123);
+		$('.scrollcon').slideToggle('slow');
+	});
+	$('.scroll ul li').click(function(){
+		var simg=$(this).find('img').attr('src');
+		//alert(simg);
+		var bimg=simg.replace(/-\d*/,"");
+		//alert(bimg);
+		$('body').css({
+			"background":"url("+bimg+")"
+		});
+	});
+	</script>
+</body>
+</html>

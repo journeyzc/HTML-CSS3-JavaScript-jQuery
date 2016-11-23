@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>京东商城导航定位</title>
+	<link rel="stylesheet" href="css/css.css">
+</head>
+<body>
+	<div id="Menu">
+		<ul>
+			<li>1F<span>服饰</span></li>
+			<li>2F<span>美妆</span></li>
+			<li>3F<span>手机</span></li>
+			<li>4F<span>家电</span></li>
+			<li>5F<span>数码</span></li>
+			<li>6F<span>运动</span></li>
+			<li>7F<span>居家</span></li>
+			<li>8F<span>母婴</span></li>
+			<li>9F<span>食品</span></li>
+			<li>10F<span>图书</span></li>
+			<li>11F<span>服务</span></li>
+		</ul>
+	</div>
+	
+	<div id="con">
+		<img src="images/head.png" alt="">
+		<div id="Louti1" class="louti"><img src="images/f1.png" alt=""></div>
+		<div id="Louti2" class="louti"><img src="images/f2.png" alt=""></div>
+		<div id="Louti3" class="louti"><img src="images/f3.png" alt=""></div>
+		<div id="Louti4" class="louti"><img src="images/f4.png" alt=""></div>
+		<div id="Louti5" class="louti"><img src="images/f5.png" alt=""></div>
+		<div id="Louti6" class="louti"><img src="images/f6.png" alt=""></div>
+		<div id="Louti7" class="louti"><img src="images/f7.png" alt=""></div>
+		<div id="Louti8" class="louti"><img src="images/f8.png" alt=""></div>
+		<div id="Louti9" class="louti"><img src="images/f9.png" alt=""></div>
+		<div id="Louti10" class="louti"><img src="images/f10.png" alt=""></div>
+		<div id="Louti11" class="louti"><img src="images/f11.png" alt=""></div>
+	</div>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+		$('#Menu ul li').hover(function(){
+			$(this).addClass('hover');
+		},function(){
+			$(this).removeClass('hover');
+		});
+		$('#Menu ul li').click(function(){
+			_index=$(this).index()+1;
+			$(this).find('span').addClass('active').parent().siblings('li').find('span').removeClass('active');
+			//console.log(_index);
+			var _top=$('#Louti'+_index).offset().top
+			//console.log(_top);\
+			$('body,html').animate({scrollTop:_top},500);
+		});
+	</script>
+</body>
+</html>

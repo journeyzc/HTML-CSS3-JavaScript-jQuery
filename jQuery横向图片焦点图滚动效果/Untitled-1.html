@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/jquery-1.11.1.js"></script>
+<style>
+div{ width:200px; height:30px; line-height:30px; border:1px solid red; }
+</style>
+</head>
+<body>
+<div id="string"> </div>
+<script>
+var el=$("div");
+var text="和后卫开盘沃尔克鹏";
+var pos=1;
+/*ticker(el,text,pos);
+function ticker(el,text,pos){
+ var  str=text.substring(0,pos);
+  el.html(str);
+  if(pos==text.length){
+  	 el.html(text);
+  }else{
+  	 setTimeout(ticker(el,text,(pos+1),30));
+  }*/
+  
+  var index=0;
+function type(){
+if(index<text.length)
+    document.getElementById("string").innerText = text.substring(0,index++);
+}
+setInterval(type, 500);
+
+</script>
+</body>
+</html>
